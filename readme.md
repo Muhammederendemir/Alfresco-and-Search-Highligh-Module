@@ -1,4 +1,4 @@
-###Adding Search-Highligh modules to Alfresco
+### Adding Search-Highligh modules to Alfresco
 
 
 * **1.Step : Let's add the search-highlight folder to the project** 
@@ -58,12 +58,12 @@
         }
 
 
-* **4.Step : Put the following codes into ./package.json Let's add.**
+* **5.Step : Put the following codes into ./package.json Let's add.**
 
         "build:search-highlight": "ng build searchHighlight",
 
 
-* **5.Step : Let's update the package.json to have the following codes.**
+* **6.Step : Let's update the package.json to have the following codes.**
 
         "build.extensions": "npm run build.aos && npm run build:search-highlight",
 
