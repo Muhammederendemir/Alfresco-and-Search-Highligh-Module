@@ -1,0 +1,44 @@
+<div class="line">
+  <span
+    tabindex="0"
+    role="link"
+    *ngIf="isFile"
+    (click)="showPreview($event)"
+    (keyup.enter)="showPreview($event)"
+    class="link"
+    innerHTML=" {{ name$ | async }}"
+  >
+  </span>
+  <span
+    tabindex="0"
+    role="link"
+    *ngIf="!isFile"
+    (click)="navigate($event)"
+    (keyup.enter)="navigate($event)"
+    class="bold link"
+    innerHTML=" {{ name$ | async }}"
+  >
+  </span>
+  <span innerHTML=" {{ title$ | async }}"></span>
+</div>
+
+<div *ngIf="description" class="line">{{ description }}</div>
+
+<div class="line">
+  {{ 'APP.BROWSE.SEARCH.CUSTOM_ROW.MODIFIED' | translate }}:
+  {{ modifiedAt | date: 'medium' }}
+  {{ 'APP.BROWSE.SEARCH.CUSTOM_ROW.BY_USER' | translate: { user: user } }}
+
+  <span *ngIf="size"
+    >| {{ 'APP.BROWSE.SEARCH.CUSTOM_ROW.SIZE' | translate }}:
+    {{ size | adfFileSize }}
+  </span>
+</div>
+
+<ng-container *ngTemplateOutlet="locationField">
+  {{ 'APP.BROWSE.SEARCH.CUSTOM_ROW.LOCATION' | translate }}:
+</ng-container>
+
+<div class="line" *ngIf="highlight">
+  ...<span *ngFor="let high of highlight" [innerHTML]="high"></span>...
+</div>
